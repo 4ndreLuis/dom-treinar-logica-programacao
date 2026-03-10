@@ -18,6 +18,7 @@ btnFeliz.addEventListener("click", mudarParaFeliz);
 btnTriste.addEventListener("click", mudarParaTriste);
 // LÓGICA DE FELICIDADE E TRISTE , ALTERAR HUMOR
 //--------------------------------------------------------------------------------------------
+//LÓGICA DE CONTADOR DOM
 var contador = document.querySelector("#valorContador");
 var btnAumentar = document.querySelector("#btnAumentar");
 var btnDiminuir = document.querySelector("#btnDiminuir");
@@ -46,3 +47,17 @@ var subtrair = function () {
 };
 btnAumentar.addEventListener("click", somar);
 btnDiminuir.addEventListener("click", subtrair);
+//LÓGICA DE CONTADOR DOM
+var nomeInput = document.querySelector("#inputNome");
+var saudar = document.querySelector("#btnSaudar");
+var saudarNome = function () {
+    var nomeParaSaudar = nomeInput.value.trim();
+    if (!nomeParaSaudar) {
+        alert("Digite um nome v\u00E1lido, por favor!");
+        return;
+    }
+    titulo.textContent = "Ol\u00E1, ".concat(nomeParaSaudar, "! Seja bem-vindo(a)!");
+    nomeInput.value = "";
+    nomeInput.focus();
+};
+saudar.addEventListener("click", saudarNome);

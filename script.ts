@@ -21,6 +21,7 @@ btnTriste.addEventListener("click", mudarParaTriste);
 // LÓGICA DE FELICIDADE E TRISTE , ALTERAR HUMOR
 //--------------------------------------------------------------------------------------------
 
+//LÓGICA DE CONTADOR DOM
 const contador = document.querySelector("#valorContador") as HTMLSpanElement;
 const btnAumentar = document.querySelector("#btnAumentar") as HTMLButtonElement;
 const btnDiminuir = document.querySelector("#btnDiminuir") as HTMLButtonElement;
@@ -52,3 +53,24 @@ const subtrair = () => {
 
 btnAumentar.addEventListener("click", somar);
 btnDiminuir.addEventListener("click", subtrair);
+//LÓGICA DE CONTADOR DOM
+
+//LÓGICA PARA TROCAR O TITULO H1 PARA O VALOR DO INPUT COM SAUDAÇÃO!
+const nomeInput = document.querySelector("#inputNome") as HTMLInputElement;
+
+const saudar = document.querySelector("#btnSaudar") as HTMLButtonElement;
+
+const saudarNome = () => {
+  let nomeParaSaudar = nomeInput.value.trim();
+  if (!nomeParaSaudar) {
+    alert(`Digite um nome válido, por favor!`);
+    return;
+  }
+  titulo.textContent = `Olá, ${nomeParaSaudar}! Seja bem-vindo(a)!`;
+  nomeInput.value = "";
+  nomeInput.focus();
+};
+
+saudar.addEventListener("click", saudarNome);
+
+//LÓGICA PARA TROCAR O TITULO H1 PARA O VALOR DO INPUT COM SAUDAÇÃO!
