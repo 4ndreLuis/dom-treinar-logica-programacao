@@ -30,19 +30,25 @@ let numeroAtual = 0;
 const atualizarTela = () => {
   if (contador) {
     contador.textContent = numeroAtual.toString();
-    contador.style.color = numeroAtual < 0 ? "red" : "green";
+    if (numeroAtual === 0) {
+      contador.style.color = "black";
+    } else if (numeroAtual > 0) {
+      contador.style.color = "green";
+    } else {
+      contador.style.color = "red";
+    }
   }
 };
 
 const somar = () => {
-  numeroAtual = numeroAtual + 1;
+  numeroAtual++;
   atualizarTela();
 };
 
 const subtrair = () => {
-  numeroAtual = numeroAtual - 1;
+  numeroAtual--;
   atualizarTela();
 };
 
-btnAumentar?.addEventListener("click", somar);
-btnDiminuir?.addEventListener("click", subtrair);
+btnAumentar.addEventListener("click", somar);
+btnDiminuir.addEventListener("click", subtrair);
