@@ -2,15 +2,26 @@
 var titulo = document.querySelector("#titulo");
 var btnFeliz = document.querySelector("#botaoFeliz");
 var btnTriste = document.querySelector("#botaoTriste");
+var nomeGlobal = "";
 function mudarParaFeliz() {
     if (titulo) {
-        titulo.textContent = "Estou feliz agora!";
+        nomeGlobal = nomeInput.value.trim();
+        if (!nomeGlobal) {
+            alert("Digite um nome v\u00E1lido!");
+            return;
+        }
+        titulo.textContent = "".concat(nomeGlobal, " est\u00E1 feliz agora!");
         titulo.style.color = "orange";
     }
 }
 function mudarParaTriste() {
     if (titulo) {
-        titulo.textContent = "Estou triste agora";
+        nomeGlobal = nomeInput.value.trim();
+        if (!nomeGlobal) {
+            alert("Digite um nome v\u00E1lido!");
+            return;
+        }
+        titulo.textContent = "".concat(nomeGlobal, " est\u00E1 triste agora.");
         titulo.style.color = "blue";
     }
 }
@@ -48,16 +59,18 @@ var subtrair = function () {
 btnAumentar.addEventListener("click", somar);
 btnDiminuir.addEventListener("click", subtrair);
 //LÓGICA DE CONTADOR DOM
+//LÓGICA PARA TROCAR O TITULO H1 PARA O VALOR DO INPUT COM SAUDAÇÃO!
 var nomeInput = document.querySelector("#inputNome");
 var saudar = document.querySelector("#btnSaudar");
 var saudarNome = function () {
-    var nomeParaSaudar = nomeInput.value.trim();
-    if (!nomeParaSaudar) {
-        alert("Digite um nome v\u00E1lido, por favor!");
+    nomeGlobal = nomeInput.value.trim();
+    if (!nomeGlobal) {
+        alert("Digite um nome v\u00E1lido!");
         return;
     }
-    titulo.textContent = "Ol\u00E1, ".concat(nomeParaSaudar, "! Seja bem-vindo(a)!");
-    nomeInput.value = "";
+    titulo.style.color = "";
+    titulo.textContent = "Ol\u00E1, ".concat(nomeGlobal, "! Seja bem-vindo(a)!");
     nomeInput.focus();
 };
 saudar.addEventListener("click", saudarNome);
+//LÓGICA PARA TROCAR O TITULO H1 PARA O VALOR DO INPUT COM SAUDAÇÃO!

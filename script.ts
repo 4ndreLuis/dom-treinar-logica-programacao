@@ -3,15 +3,27 @@ const titulo = document.querySelector("#titulo") as HTMLHeadElement;
 const btnFeliz = document.querySelector("#botaoFeliz") as HTMLButtonElement;
 const btnTriste = document.querySelector("#botaoTriste") as HTMLButtonElement;
 
+let nomeGlobal = "";
+
 function mudarParaFeliz() {
   if (titulo) {
-    titulo.textContent = "Estou feliz agora!";
+    nomeGlobal = nomeInput.value.trim();
+    if (!nomeGlobal) {
+      alert(`Digite um nome válido!`);
+      return;
+    }
+    titulo.textContent = `${nomeGlobal} está feliz agora!`;
     titulo.style.color = "orange";
   }
 }
 function mudarParaTriste() {
   if (titulo) {
-    titulo.textContent = "Estou triste agora";
+    nomeGlobal = nomeInput.value.trim();
+    if (!nomeGlobal) {
+      alert(`Digite um nome válido!`);
+      return;
+    }
+    titulo.textContent = `${nomeGlobal} está triste agora.`;
     titulo.style.color = "blue";
   }
 }
@@ -61,13 +73,13 @@ const nomeInput = document.querySelector("#inputNome") as HTMLInputElement;
 const saudar = document.querySelector("#btnSaudar") as HTMLButtonElement;
 
 const saudarNome = () => {
-  let nomeParaSaudar = nomeInput.value.trim();
-  if (!nomeParaSaudar) {
-    alert(`Digite um nome válido, por favor!`);
+  nomeGlobal = nomeInput.value.trim();
+  if (!nomeGlobal) {
+    alert(`Digite um nome válido!`);
     return;
   }
-  titulo.textContent = `Olá, ${nomeParaSaudar}! Seja bem-vindo(a)!`;
-  nomeInput.value = "";
+  titulo.style.color = "";
+  titulo.textContent = `Olá, ${nomeGlobal}! Seja bem-vindo(a)!`;
   nomeInput.focus();
 };
 
